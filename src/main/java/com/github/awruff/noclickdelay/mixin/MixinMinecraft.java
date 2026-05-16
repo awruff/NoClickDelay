@@ -1,7 +1,8 @@
-package com.github.awruff.noclickdelay.mixins;
+package com.github.awruff.noclickdelay.mixin;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.options.GameOptions;
+import net.minecraft.client.options.KeyBinding;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -24,6 +25,8 @@ public class MixinMinecraft {
         if (keyCode == options.attackKey.getKeyCode() && !pressed) {
             attackCooldown = 0;
         }
+
+        KeyBinding.set(keyCode, pressed);
     }
 
 }
