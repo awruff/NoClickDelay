@@ -1,0 +1,16 @@
+[versions]
+loader = "0.19.2"
+minecraft = "1.8.9"
+
+feather_build = "1"
+
+loom = "1.16.2"
+ploceus = "1.16.1"
+
+[libraries]
+loader = { module = "net.fabricmc:fabric-loader", version.ref = "loader" }
+minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+
+[plugins]
+ploceus = { id = "ploceus", version.ref = "ploceus" }
+loom = { id = "net.fabricmc.fabric-loom-remap", version.ref = "loom" }

@@ -1,0 +1,22 @@
+{
+    "schemaVersion": 1,
+    "id": "noclickdelay",
+    "version": "${version}",
+    "name": "No Click Delay",
+    "description": "Fixes the click delay on 1.8.x by properly resetting it on release.",
+    "authors": [
+        "awruff"
+    ],
+    "contact": {
+        "homepage": "https://awruff.codeberg.page",
+        "sources": "https://github.com/awruff/NoClickDelay"
+    },
+    "license": "unlicense",
+    "environment": "client",
+    "mixins": [
+        "noclickdelay.mixins.json"
+    ],
+    "depends": {
+        "minecraft": "~1.8"
+    }
+}

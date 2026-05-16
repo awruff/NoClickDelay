@@ -1,0 +1,50 @@
+plugins {
+    alias(libs.plugins.loom)
+    alias(libs.plugins.ploceus)
+}
+
+base {
+    archivesName = project.archives_base_name
+}
+version = "${project.version}+mc${libs.versions.minecraft.get()}"
+group = project.maven_group
+
+ploceus {
+    setIntermediaryGeneration(2)
+}
+
+repositories {
+}
+
+dependencies {
+    minecraft libs.minecraft
+    modImplementation libs.loader
+
+    mappings ploceus.featherMappings(libs.versions.feather.build.get())
+}
+
+processResources {
+    inputs.property 'version', version
+
+    filesMatching('fabric.mod.json') {
+        expand 'version': version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
+    it.options.release = 8
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    withSourcesJar()
+}
+
+jar {
+    from('LICENSE') {
+        rename { "${it}_${base.archivesName.get()}" }
+    }
+}
