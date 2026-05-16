@@ -14,11 +14,14 @@ ploceus {
 }
 
 repositories {
+    maven { url = "https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1" }
 }
 
 dependencies {
     minecraft libs.minecraft
     modImplementation libs.loader
+
+    modRuntimeOnly libs.devauth
 
     mappings ploceus.featherMappings(libs.versions.feather.build.get())
 }
